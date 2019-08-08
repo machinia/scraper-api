@@ -1,6 +1,8 @@
 language: python
 python:
     - '3.6'
+install:
+    - 'pip install -r requirements/default.txt'
 # command to run tests
 script:
     - 'django-admin test --pythonpath=. --settings=scraper_api.settings'
