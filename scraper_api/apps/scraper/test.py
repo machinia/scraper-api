@@ -16,7 +16,7 @@ class SpiderTest(SimpleTestCase):
 
     def test_scrape_wrong_spider_name(self):
         resp = self.client.post("/api/v1/spider/wrong-spider-name")
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 404)
         expected = {"error": "'wrong-spider-name': spider not found"}
         self.assertJSONEqual(resp.content, expected)
 

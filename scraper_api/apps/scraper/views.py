@@ -21,7 +21,8 @@ def spiders(request):
 
 def scrape(request, spider_name):
     if spider_name != "amazon-wishlist":
-        return JsonResponse({"error": "'%s': spider not found" % spider_name})
+        return JsonResponse({"error": "'%s': spider not found" % spider_name},
+                            status=404)
 
     body = json.loads(request.body)
     url = body.get("url")
