@@ -21,14 +21,14 @@ class SpiderTest(SimpleTestCase):
         self.assertJSONEqual(resp.content, expected)
 
     def test_scrape_url_not(self):
-        resp = self.client.post("/api/v1/spider/amazon-whishlist",
+        resp = self.client.post("/api/v1/spider/amazon-wishlist",
                                 data={},
                                 content_type="application/json")
         self.assertEqual(resp.status_code, 200)
         self.assertJSONEqual(resp.content, {"error": "'url' key not found"})
 
     def test_scrape_url_wrong(self):
-        resp = self.client.post("/api/v1/spider/amazon-whishlist",
+        resp = self.client.post("/api/v1/spider/amazon-wishlist",
                                 data={"url": "wrong-url"},
                                 content_type="application/json")
         self.assertEqual(resp.status_code, 200)
@@ -42,7 +42,7 @@ class SpiderTest(SimpleTestCase):
         ]
         scrape.return_value = return_value
 
-        resp = self.client.post("/api/v1/spider/amazon-whishlist",
+        resp = self.client.post("/api/v1/spider/amazon-wishlist",
                                 data={"url": "some-url"},
                                 content_type="application/json")
         self.assertEqual(resp.status_code, 200)

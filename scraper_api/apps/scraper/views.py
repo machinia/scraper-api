@@ -4,13 +4,13 @@ from django.http import JsonResponse
 import scraper_factory
 
 SPIDERS = [{
-    "name": "amazon-whishlist",
+    "name": "amazon-wishlist",
     "version": "0.1.0",
-    "description": "scrape public Amazon whishlist",
+    "description": "scrape public Amazon wishlist",
     "params": [{
         "name": "url",
         "type": "string",
-        "description": "Amazon whishlist URL to be scraped",
+        "description": "Amazon wishlist URL to be scraped",
     }]
 }]
 
@@ -20,7 +20,7 @@ def spiders(request):
 
 
 def scrape(request, spider_name):
-    if spider_name != "amazon-whishlist":
+    if spider_name != "amazon-wishlist":
         return JsonResponse({"error": "'%s': spider not found" % spider_name})
 
     body = json.loads(request.body)
