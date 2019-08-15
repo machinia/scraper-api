@@ -1,5 +1,5 @@
 from django.urls import path
-from scraper_api.app.views import heartbeat
+from scraper_api.apps.heartbeat.views import heartbeat
 
 
 urlpatterns = [
