@@ -28,7 +28,7 @@ def scrape(request, spider_name):
     url = body.get("url")
     print(request.body)
     if not url:
-        return JsonResponse({"error": "'url' key not found"})
+        return JsonResponse({"error": "'url' key not found"}, status=400)
 
     resp = scraper_factory.scrape(url)
     return JsonResponse({"data": resp})

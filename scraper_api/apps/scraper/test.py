@@ -24,7 +24,7 @@ class SpiderTest(SimpleTestCase):
         resp = self.client.post("/api/v1/spider/amazon-wishlist",
                                 data={},
                                 content_type="application/json")
-        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.status_code, 400)
         self.assertJSONEqual(resp.content, {"error": "'url' key not found"})
 
     def test_scrape_url_wrong(self):
