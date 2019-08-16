@@ -1,5 +1,8 @@
 import os
 
+ALLOWED_HOSTS = [
+    "machinia-scraper-api.herokuapp.com",
+]
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
