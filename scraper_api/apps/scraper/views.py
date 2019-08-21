@@ -3,20 +3,9 @@ from django.http import JsonResponse
 
 import scraper_factory
 
-SPIDERS = [{
-    "name": "amazon-wishlist",
-    "version": "0.1.0",
-    "description": "scrape public Amazon wishlist",
-    "params": [{
-        "name": "url",
-        "type": "string",
-        "description": "Amazon wishlist URL to be scraped",
-    }]
-}]
-
 
 def spiders(request):
-    return JsonResponse({"data": SPIDERS})
+    return JsonResponse({"data": scraper_factory.spiders()})
 
 
 def scrape(request, spider_name):
